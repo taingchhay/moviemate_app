@@ -1,16 +1,105 @@
 # moviemate_app
+# 🎬 CineMate Practice App
 
-A new Flutter project.
+## 📌 Project Overview
 
-## Getting Started
+CineMate Practice App is a Flutter practice project designed to simulate a real-world streaming application architecture similar to the CINEMATE internship project.
 
-This project is a starting point for a Flutter application.
+This project focuses on learning:
+- Flutter modular architecture
+- Bloc state management
+- API integration
+- Reusable component design
+- Feature-based development
+- Clean code structure
+- Real-world frontend workflow
 
-A few resources to get you started if this is your first Flutter project:
+The application allows users to:
+- Browse movies
+- Search entertainment content
+- View promotions
+- Explore short film rooms
+- Practice frontend-backend integration
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project is intended for learning and internship preparation purposes.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+# 🎯 Project Goals
+
+The main goal of this project is to practice building scalable Flutter applications using modern architecture and development workflows.
+
+---
+
+# 🛠 Technologies Used
+
+## Frontend
+- Flutter
+- Dart
+
+## State Management
+- flutter_bloc
+
+## API & Networking
+- dio
+
+## UI Design
+- Material Design
+- Responsive Layout
+
+## Development Tools
+- VS Code / Android Studio
+- Git & GitHub
+
+---
+
+# 📂 Project Structure
+
+```txt
+lib/
+│
+├── core/
+│   ├── constants/
+│   │   └── app_colors.dart
+│   │
+│   ├── theme/
+│   │   └── app_theme.dart
+│   │
+│   └── network/
+│       └── dio_client.dart
+│
+├── shared/
+│   ├── widgets/
+│   │   ├── movie_card.dart
+│   │   ├── custom_app_bar.dart
+│   │   └── loading_widget.dart
+│   │
+│   └── models/
+│       └── movie_model.dart
+│
+├── features/
+│   ├── home/
+│   │   ├── presentation/
+│   │   │   └── home_screen.dart
+│   │   │
+│   │   ├── bloc/
+│   │   │   ├── home_bloc.dart
+│   │   │   ├── home_event.dart
+│   │   │   └── home_state.dart
+│   │   │
+│   │   └── data/
+│   │       └── home_repository.dart
+│   │
+│   ├── search/
+│   │   └── presentation/
+│   │       └── search_screen.dart
+│   │
+│   ├── promotion/
+│   │   └── presentation/
+│   │       └── promotion_screen.dart
+│   │
+│   └── short_room/
+│       └── presentation/
+│           └── short_room_screen.dart
+│
+└── main.dart
