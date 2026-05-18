@@ -6,6 +6,7 @@ import 'package:moviemate_app/features/home/bloc/home_state.dart';
 import 'package:moviemate_app/features/home/data/home_repository.dart';
 import 'package:moviemate_app/shared/widgets/highlight_widget.dart';
 import 'package:moviemate_app/shared/widgets/movie_card.dart';
+import 'package:moviemate_app/shared/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,33 +31,46 @@ class _HomeScreenContent extends StatefulWidget {
 }
 
 class _HomeScreenContentState extends State<_HomeScreenContent> {
+  bool _isSearching = false;  // ← toggle
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 600;
-    final appBarTitleSize = isMobile ? 20.0 : 24.0;
 
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        title: Text(
-          'MovieMate',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: appBarTitleSize,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        // actions: [
-        //   IconButton(
-        //     icon: const Icon(Icons.refresh, color: Colors.white),
-        //     onPressed: () {
-        //       context.read<HomeBloc>()/*.add(const RefreshHomeDataEvent())*/;
-        //     },
-        //   ),
-        // ],
+        titleSpacing: 0,
+        title: _isSearching
+            ? Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: SearchBarWidget(
+                  onChanged: (query) {
+                    // connect to Bloc later when API is ready
+                  },
+                ),
+              )
+            : Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Image.asset(
+                  'assets/moviemate_logo.jpg',
+                  height: 36,
+                ),
+              ),
+        actions: [
+          _isSearching
+              ? IconButton(
+                  icon: const Icon(Icons.close, color: Colors.white),
+                  onPressed: () => setState(() => _isSearching = false),
+                )
+              : IconButton(
+                  icon: const Icon(Icons.search, color: Colors.white),
+                  onPressed: () => setState(() => _isSearching = true),
+                ),
+        ],
       ),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
@@ -71,36 +85,15 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
             final isMobile = screenWidth < 600;
             final isTablet = screenWidth >= 600 && screenWidth < 1000;
 
-            // Responsive grid columns
-            final gridColumns =
-                isMobile
-                    ? 2
-                    : isTablet
-                    ? 3
-                    : 4;
-            final horizontalPadding =
-                isMobile
-                    ? 12.0
-                    : isTablet
-                    ? 16.0
-                    : 20.0;
-            final gridSpacing =
-                isMobile
-                    ? 12.0
-                    : isTablet
-                    ? 14.0
-                    : 16.0;
-            final titleFontSize =
-                isMobile
-                    ? 18.0
-                    : isTablet
-                    ? 20.0
-                    : 24.0;
+            final gridColumns = isMobile ? 2 : isTablet ? 3 : 4;
+            final horizontalPadding = isMobile ? 12.0 : isTablet ? 16.0 : 20.0;
+            final gridSpacing = isMobile ? 12.0 : isTablet ? 14.0 : 16.0;
+            final titleFontSize = isMobile ? 18.0 : isTablet ? 20.0 : 24.0;
 
             return SafeArea(
               child: RefreshIndicator(
                 onRefresh: () async {
-                  context.read<HomeBloc>()/*.add(const RefreshHomeDataEvent())*/;
+                  context.read<HomeBloc>();
                 },
                 child: SingleChildScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
@@ -140,7 +133,6 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
                         ),
                         SizedBox(height: gridSpacing),
 
-                        // Responsive Grid Layout
                         Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: horizontalPadding - 2,
@@ -177,42 +169,6 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
               ),
             );
           }
-
-          // if (state is HomeError) {
-          //   return Center(
-          //     child: Column(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         const Icon(Icons.error, color: Colors.red, size: 48),
-          //         const SizedBox(height: 16),
-          //         Text(
-          //           state.message,
-          //           textAlign: TextAlign.center,
-          //           style: const TextStyle(color: Colors.white, fontSize: 16),
-          //         ),
-          //         const SizedBox(height: 24),
-          //         // ElevatedButton(
-          //         //   onPressed: () {
-          //         //     context.read<HomeBloc>().add(
-          //         //       const RefreshHomeDataEvent(),
-          //         //     );
-          //         //   },
-          //         //   style: ElevatedButton.styleFrom(
-          //         //     backgroundColor: Colors.blue,
-          //         //     padding: const EdgeInsets.symmetric(
-          //         //       horizontal: 24,
-          //         //       vertical: 12,
-          //         //     ),
-          //         //   ),
-          //         //   child: const Text(
-          //         //     'Retry',
-          //         //     style: TextStyle(color: Colors.white),
-          //         //   ),
-          //         // ),
-          //       ],
-          //     ),
-          //   );
-          // }
 
           return const Center(
             child: Text('Unknown state', style: TextStyle(color: Colors.white)),

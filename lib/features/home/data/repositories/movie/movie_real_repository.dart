@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:moviemate_app/features/home/data/config/firebase_config.dart';
 import 'package:moviemate_app/features/home/data/dtos/highlight_dto.dart';
 import 'package:moviemate_app/features/home/data/dtos/movie_dto.dart';
-import 'package:moviemate_app/features/home/data/repositories/movie_repository.dart';
+import 'package:moviemate_app/features/home/data/repositories/movie/movie_repository.dart';
 import 'package:moviemate_app/shared/models/highlight_model.dart';
 import 'package:moviemate_app/shared/models/movie_model.dart';
 
