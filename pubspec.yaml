@@ -26,4 +26,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/moviemate_logo.jpg
+    - assets/app_Logo.png
+    - assets/search_Button.png

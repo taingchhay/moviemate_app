@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: showDebugBanner,
+      debugShowCheckedModeBanner: false,
       title: 'MovieMate$titleSuffix',
       theme: AppTheme.darkTheme,
       home: const HomeScreen(),

@@ -4,9 +4,9 @@ import 'package:moviemate_app/features/home/bloc/home_bloc.dart';
 import 'package:moviemate_app/features/home/bloc/home_event.dart';
 import 'package:moviemate_app/features/home/bloc/home_state.dart';
 import 'package:moviemate_app/features/home/data/home_repository.dart';
+import 'package:moviemate_app/features/home/presentation/search_page.dart';
 import 'package:moviemate_app/shared/widgets/highlight_widget.dart';
 import 'package:moviemate_app/shared/widgets/movie_card.dart';
-import 'package:moviemate_app/shared/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,45 +31,39 @@ class _HomeScreenContent extends StatefulWidget {
 }
 
 class _HomeScreenContentState extends State<_HomeScreenContent> {
-  bool _isSearching = false;  // ← toggle
-
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < 600;
-
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
         titleSpacing: 0,
-        title: _isSearching
-            ? Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: SearchBarWidget(
-                  onChanged: (query) {
-                    // connect to Bloc later when API is ready
-                  },
-                ),
-              )
-            : Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Image.asset(
-                  'assets/moviemate_logo.jpg',
-                  height: 36,
-                ),
-              ),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Image.asset('assets/app_Logo.png', height: 36),
+        ),
         actions: [
-          _isSearching
-              ? IconButton(
-                  icon: const Icon(Icons.close, color: Colors.white),
-                  onPressed: () => setState(() => _isSearching = false),
-                )
-              : IconButton(
-                  icon: const Icon(Icons.search, color: Colors.white),
-                  onPressed: () => setState(() => _isSearching = true),
-                ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchPage()),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8.0,
+              ),
+              child: Image.asset(
+                'assets/search_Button.png',
+                width: 40,
+                height: 40,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
         ],
       ),
       body: BlocBuilder<HomeBloc, HomeState>(
@@ -85,10 +79,30 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
             final isMobile = screenWidth < 600;
             final isTablet = screenWidth >= 600 && screenWidth < 1000;
 
-            final gridColumns = isMobile ? 2 : isTablet ? 3 : 4;
-            final horizontalPadding = isMobile ? 12.0 : isTablet ? 16.0 : 20.0;
-            final gridSpacing = isMobile ? 12.0 : isTablet ? 14.0 : 16.0;
-            final titleFontSize = isMobile ? 18.0 : isTablet ? 20.0 : 24.0;
+            final gridColumns =
+                isMobile
+                    ? 2
+                    : isTablet
+                    ? 3
+                    : 4;
+            final horizontalPadding =
+                isMobile
+                    ? 12.0
+                    : isTablet
+                    ? 16.0
+                    : 20.0;
+            final gridSpacing =
+                isMobile
+                    ? 12.0
+                    : isTablet
+                    ? 14.0
+                    : 16.0;
+            final titleFontSize =
+                isMobile
+                    ? 18.0
+                    : isTablet
+                    ? 20.0
+                    : 24.0;
 
             return SafeArea(
               child: RefreshIndicator(
