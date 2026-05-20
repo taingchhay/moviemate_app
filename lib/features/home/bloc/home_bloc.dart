@@ -6,10 +6,9 @@ import 'package:moviemate_app/features/home/data/home_repository.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final HomeRepository homeRepository;
 
-  HomeBloc({
-    required this.homeRepository
-    }) : super(const HomeInitial()) {
+  HomeBloc({required this.homeRepository}) : super(const HomeInitial()) {
     on<LoadHomeDataEvent>(_onLoadData);
+    on<SelectCategoryEvent>(_onSelectCategory);
     // on<RefreshHomeDataEvent>(_onLoadData);
   }
 
@@ -25,6 +24,22 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     } catch (e) {
       emit(HomeError(message: 'Failed to load data: $e'));
+    }
+  }
+
+  Future<void> _onSelectCategory(
+    SelectCategoryEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    final currentState = state;
+    if (currentState is HomeSuccess) {
+      emit(
+        HomeSuccess(
+          highlights: currentState.highlights,
+          movies: currentState.movies,
+          selectedCategory: event.category,
+        ),
+      );
     }
   }
 }

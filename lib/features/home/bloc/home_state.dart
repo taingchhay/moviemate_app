@@ -22,15 +22,32 @@ class HomeLoading extends HomeState {
   @override
   List<Object?> get props => [];
 }
-
+//Select categories state
 class HomeSuccess extends HomeState {
   final List<HighlightModel> highlights;
   final List<MovieModel> movies;
+  final String selectedCategory;
 
-  const HomeSuccess({required this.highlights, required this.movies});
+  const HomeSuccess({
+    required this.highlights,
+    required this.movies,
+    this.selectedCategory = 'All Movies',
+  });
+
+  List<MovieModel> get filteredMovies {
+    if (selectedCategory == 'All Movies') {
+      return movies;
+    }
+    return movies
+        .where(
+          (movie) =>
+              movie.category.toLowerCase() == selectedCategory.toLowerCase(),
+        )
+        .toList();
+  }
 
   @override
-  List<Object?> get props => [highlights, movies];
+  List<Object?> get props => [highlights, movies, selectedCategory];
 }
 
 class HomeError extends HomeState {

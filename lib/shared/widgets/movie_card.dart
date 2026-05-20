@@ -3,8 +3,9 @@ import '../models/movie_model.dart';
 
 class MovieCard extends StatelessWidget {
   final MovieModel movie;
+  final VoidCallback? onTap;
 
-  const MovieCard({super.key, required this.movie});
+  const MovieCard({super.key, required this.movie, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,7 @@ class MovieCard extends StatelessWidget {
     final iconSize = isMobile ? 14.0 : 18.0;
 
     return GestureDetector(
-      onTap: () {
-        //Handle movie tap
-      },
+      onTap: onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

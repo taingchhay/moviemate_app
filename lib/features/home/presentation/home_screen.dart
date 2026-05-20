@@ -4,6 +4,7 @@ import 'package:moviemate_app/features/home/bloc/home_bloc.dart';
 import 'package:moviemate_app/features/home/bloc/home_event.dart';
 import 'package:moviemate_app/features/home/bloc/home_state.dart';
 import 'package:moviemate_app/features/home/data/home_repository.dart';
+import 'package:moviemate_app/features/home/presentation/movie_detail_screen.dart';
 import 'package:moviemate_app/features/home/presentation/search_page.dart';
 import 'package:moviemate_app/shared/widgets/highlight_widget.dart';
 import 'package:moviemate_app/shared/widgets/movie_card.dart';
@@ -116,10 +117,88 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
                     children: [
                       const SizedBox(height: 10),
 
+                       //CATEGORY FILTER SECTION
+                      if (state.movies.isNotEmpty)
+                        SizedBox(
+                          height: 48,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: horizontalPadding,
+                            ),
+                            children:
+                                [
+                                      'All Movies',
+                                      'Drama',
+                                      'Action',
+                                      'Sports',
+                                      'Kids',
+                                    ]
+                                    .map(
+                                      (category) => Padding(
+                                        padding: const EdgeInsets.only(
+                                          right: 8,
+                                        ),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            context.read<HomeBloc>().add(
+                                              SelectCategoryEvent(
+                                                category: category,
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 16,
+                                              vertical: 8,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  state.selectedCategory ==
+                                                          category
+                                                            ? const Color(0xFFD946A6)
+                                                            : const Color(0xFF222222),
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                category,
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: isMobile ? 12 : 14,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                    .toList(),
+                          ),
+                        ),
+
+                      const SizedBox(height: 20),
+
                       //HIGHLIGHT SLIDER
-                      if (state.highlights.isNotEmpty)
-                        HighlightSliderWidget(highlights: state.highlights)
-                      else
+                      if (state.highlights.isNotEmpty) ...[
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: horizontalPadding,
+                          ),
+                          child: Text(
+                            'Highlights',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: titleFontSize,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: gridSpacing),
+                        HighlightSliderWidget(highlights: state.highlights),
+                      ] else
                         const Padding(
                           padding: EdgeInsets.all(12),
                           child: Text(
@@ -131,7 +210,7 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
                       const SizedBox(height: 30),
 
                       //TRENDING MOVIES SECTION
-                      if (state.movies.isNotEmpty) ...[
+                      if (state.filteredMovies.isNotEmpty) ...[
                         Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: horizontalPadding,
@@ -161,9 +240,22 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
                                   mainAxisSpacing: gridSpacing,
                                   childAspectRatio: 0.60,
                                 ),
-                            itemCount: state.movies.length,
+                            itemCount: state.filteredMovies.length,
                             itemBuilder: (context, index) {
-                              return MovieCard(movie: state.movies[index]);
+                              final movie = state.filteredMovies[index];
+                              return MovieCard(
+                                movie: movie,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder:
+                                          (context) =>
+                                              MovieDetailScreen(movie: movie),
+                                    ),
+                                  );
+                                },
+                              );
                             },
                           ),
                         ),
