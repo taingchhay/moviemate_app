@@ -1,6 +1,6 @@
-import 'package:moviemate_app/features/home/data/repositories/movie/movie_real_repository.dart';
-import 'package:moviemate_app/shared/models/highlight_model.dart';
-import 'package:moviemate_app/shared/models/movie_model.dart';
+import 'package:moviemate_app/services/repositories/movie/movie_real_repository.dart';
+import 'package:moviemate_app/models/highlight_model.dart';
+import 'package:moviemate_app/models/movie_model.dart';
 
 class HomeRepository {
   final _movieRepository = MovieRealRepository();

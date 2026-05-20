@@ -1,4 +1,4 @@
-import 'package:moviemate_app/shared/models/highlight_model.dart';
+import 'package:moviemate_app/models/highlight_model.dart';
 
 class HighlightDTO {
   final String title;

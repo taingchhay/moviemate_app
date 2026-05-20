@@ -1,4 +1,4 @@
-import 'package:moviemate_app/shared/models/movie_model.dart';
+import 'package:moviemate_app/models/movie_model.dart';
 
 class MovieDTO {
   final int id;
@@ -9,6 +9,7 @@ class MovieDTO {
   final String soundType;
   final String category;
   final double rating;
+  final List<String> actors;
 
   MovieDTO({
     required this.id,
@@ -19,6 +20,7 @@ class MovieDTO {
     required this.soundType,
     required this.category,
     required this.rating,
+    required this.actors,
   });
 
   factory MovieDTO.fromJson(Map<String, dynamic> json) {
@@ -31,6 +33,7 @@ class MovieDTO {
       soundType: json['soundType'] as String? ?? '',
       category: json['category'] as String? ?? '',
       rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
+      actors: List<String>.from(json['actors'] as List? ?? []),
     );
   }
 
@@ -44,6 +47,7 @@ class MovieDTO {
       soundType: model.soundType,
       category: model.category,
       rating: model.rating,
+      actors: model.actors,
     );
   }
 
@@ -57,6 +61,7 @@ class MovieDTO {
       soundType: soundType,
       category: category,
       rating: rating,
+      actors: actors,
     );
   }
 
@@ -70,6 +75,7 @@ class MovieDTO {
       'soundType': soundType,
       'category': category,
       'rating': rating,
+      'actors': actors,
     };
   }
 }

@@ -1,0 +1,192 @@
+{
+  "highlight": [
+    {
+      "title": "Interstellar",
+      "image": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+      "actors": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"]
+    },
+    {
+      "title": "Avengers: Endgame",
+      "image": "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdW6n0m5Q4aZ.jpg",
+      "actors": ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"]
+    },
+    {
+      "title": "The Dark Knight",
+      "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "actors": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"]
+    },
+    {
+      "title": "Dune",
+      "image": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "actors": ["Timothée Chalamet", "Zendaya", "Rebecca Ferguson"]
+    }
+  ],
+
+  "movies": [
+    {
+      "id": 1,
+      "title": "Spider-Man: No Way Home",
+      "image": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+      "year": 2021,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "action",
+      "rating": 8.3,
+      "actors": ["Tom Holland", "Zendaya", "Benedict Cumberbatch"]
+    },
+    {
+      "id": 2,
+      "title": "Joker",
+      "image": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+      "year": 2019,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "drama",
+      "rating": 8.4,
+      "actors": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"]
+    },
+    {
+      "id": 3,
+      "title": "Titanic",
+      "image": "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg",
+      "year": 1997,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "romance",
+      "rating": 7.9,
+      "actors": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"]
+    },
+    {
+      "id": 4,
+      "title": "John Wick",
+      "image": "https://image.tmdb.org/t/p/w500/5vHssUeVe25bMrof1HyaPyWgaP.jpg",
+      "year": 2014,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "action",
+      "rating": 7.8,
+      "actors": ["Keanu Reeves", "Ian McShane", "Willem Dafoe"]
+    },
+    {
+      "id": 5,
+      "title": "Avatar",
+      "image": "https://image.tmdb.org/t/p/w500/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg",
+      "year": 2009,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "sci-fi",
+      "rating": 7.8,
+      "actors": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"]
+    },
+    {
+      "id": 6,
+      "title": "Black Panther",
+      "image": "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+      "year": 2018,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "action",
+      "rating": 7.3,
+      "actors": ["Chadwick Boseman", "Michael B. Jordan", "Lupita Nyong'o"]
+    },
+    {
+      "id": 7,
+      "title": "Doctor Strange",
+      "image": "https://image.tmdb.org/t/p/w500/uGBVj3bEbCoZbD7v2mG6U7b7L.jpg",
+      "year": 2016,
+      "type": "english",
+      "soundType": "aiVoice",
+      "category": "fantasy",
+      "rating": 7.5,
+      "actors": ["Benedict Cumberbatch", "Rachel McAdams", "Tilda Swinton"]
+    },
+    {
+      "id": 8,
+      "title": "Fast & Furious 7",
+      "image": "https://image.tmdb.org/t/p/w500/ktofZ9HtrjS4vQ2tQ0aX1.jpg",
+      "year": 2015,
+      "type": "english",
+      "soundType": "aiVoice",
+      "category": "action",
+      "rating": 7.1,
+      "actors": ["Vin Diesel", "Paul Walker", "Dwayne Johnson"]
+    },
+    {
+      "id": 9,
+      "title": "Frozen",
+      "image": "https://image.tmdb.org/t/p/w500/jIjdFXKUNtdf1bwqMrhearpyjMj.jpg",
+      "year": 2013,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "animation",
+      "rating": 7.4,
+      "actors": ["Kristen Bell", "Idina Menzel", "Josh Gad"]
+    },
+    {
+      "id": 10,
+      "title": "The Lion King",
+      "image": "https://image.tmdb.org/t/p/w500/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg",
+      "year": 1994,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "animation",
+      "rating": 8.5,
+      "actors": ["Matthew Broderick", "Jeremy Irons", "James Earl Jones"]
+    },
+    {
+      "id": 11,
+      "title": "Inception",
+      "image": "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+      "year": 2010,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "sci-fi",
+      "rating": 8.8,
+      "actors": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Tom Hardy"]
+    },
+    {
+      "id": 12,
+      "title": "The Batman",
+      "image": "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+      "year": 2022,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "action",
+      "rating": 7.9,
+      "actors": ["Robert Pattinson", "Zoë Kravitz", "Paul Dano"]
+    },
+    {
+      "id": 13,
+      "title": "Top Gun: Maverick",
+      "image": "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
+      "year": 2022,
+      "type": "english",
+      "soundType": "humanVoice",
+      "category": "action",
+      "rating": 8.2,
+      "actors": ["Tom Cruise", "Miles Teller", "Jennifer Connelly"]
+    },
+    {
+      "id": 14,
+      "title": "Deadpool",
+      "image": "https://image.tmdb.org/t/p/w500/3E53WEZJqP6aM84D8CckXx4pIHw.jpg",
+      "year": 2016,
+      "type": "english",
+      "soundType": "aiVoice",
+      "category": "action",
+      "rating": 8.0,
+      "actors": ["Ryan Reynolds", "Morena Baccarin", "T.J. Miller"]
+    },
+    {
+      "id": 15,
+      "title": "Minions",
+      "image": "https://image.tmdb.org/t/p/w500/vlOG6y8YvX9uZ4r2C8Yp.jpg",
+      "year": 2015,
+      "type": "english",
+      "soundType": "aiVoice",
+      "category": "animation",
+      "rating": 6.4,
+      "actors": ["Sandra Bullock", "Jon Hamm", "Michael Keaton"]
+    }
+  ]
+}

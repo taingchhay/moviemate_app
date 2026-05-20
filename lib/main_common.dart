@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/theme/app_theme.dart';
-import 'features/home/presentation/home_screen.dart';
+import 'view/screen/home_screen.dart';
 
 void mainCommon({bool showDebugBanner = false, String titleSuffix = ''}) {
   runApp(MyApp(showDebugBanner: showDebugBanner, titleSuffix: titleSuffix));
